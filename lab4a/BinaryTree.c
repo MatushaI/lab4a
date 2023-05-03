@@ -341,6 +341,7 @@ int counter(void) {
                     } else {
                         addTree(tree, read, 1);
                     }
+                    
                 }
                 i++;
             }

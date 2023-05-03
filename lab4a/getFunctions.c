@@ -42,12 +42,14 @@ int importFile(Tree *tree, Node **node) {
             info = NULL;
             i++;
             addTree(tree, k, inf);
+            
         }
+        fclose(file);
     } else {
         printf("(X) Файл не найден\n");
     }
     paintBinaryTree(tree);
-    fclose(file);
+    
     
     return 1;
 }

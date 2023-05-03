@@ -116,6 +116,7 @@ void printTreeSearch_In(Tree *tree, Node **search) {
 }
 
 void searchKey_In(Tree *tree, Node **search) {
+    Node *searchN = NULL;
     unsigned int key = 0;
     char *string = NULL;
     char *errorMessage = "";
@@ -131,15 +132,16 @@ void searchKey_In(Tree *tree, Node **search) {
         free(string);
     } while(key == -1);
         
-    if(!(*search = searchTree(tree, key))) {
-        printf("\n(X) Ключ не найден\n");
+    if(!(searchN = searchTree(tree, key))){
+        printf("\n(X) Элемент не найден или дерево пустое\n");
     } else {
         printf("Результат поиска:\n");
-        printf("Ключ: %d, информация: %d\n", (*search)->key, *(*search)->info);
+        printf("Ключ: %d, информация: %d\n", searchN->key, *searchN->info);
     }
 }
 
 void searchSpecial_In(Tree *tree, Node **search) {
+    Node *searchN = NULL;
     char *errorMessage = "";
     char *string = NULL;
     unsigned int key = 0;
@@ -155,11 +157,11 @@ void searchSpecial_In(Tree *tree, Node **search) {
         free(string);
     } while(key == -1);
     
-    if(!(*search = specialSearchTree(tree, key))){
+    if(!(searchN = specialSearchTree(tree, key))){
         printf("\n(X) Дерево пустое\n");
     } else {
         printf("Результат поиска:\n");
-        printf("Ключ: %d, информация: %d\n", (*search)->key, *(*search)->info);
+        printf("Ключ: %d, информация: %d\n", searchN->key, *searchN->info);
     }
 }
 
